@@ -1,2 +1,2 @@
 # TDG-Backend-API
-Backend API for The Dhobi Ghat project
+Server API for The Dhobi Ghat project
