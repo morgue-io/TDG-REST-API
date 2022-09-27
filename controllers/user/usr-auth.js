@@ -79,9 +79,9 @@ exports.refreshAuthorisationHandler = async (req, res) => {
         }
     } catch (e) {
         console.log(e)
-        /* res.status(500).json({
+        res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE? e.message : 'An error was encountered, check your request and try again'
-        }); */
+        });
     }
 };
