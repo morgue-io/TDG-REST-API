@@ -32,11 +32,11 @@ router.route('/new-order')
     .post(userAuth.authorisationHandler, userOrders.postNewOrderHandler);
 
 router.route('/profile')
-    .get(userProfile.getUserProfileHandler)
-    .post(userProfile.postUserProfiletHandler);
+    .get(userAuth.authorisationHandler, userProfile.getUserProfileHandler)
+    .post(userAuth.authorisationHandler, userProfile.postUserProfiletHandler);
 
 router.route('/change-credentials')
-    .post(userProfile.postUserCredentialHandler);
+    .post(userAuth.authorisationHandler, userProfile.postUserCredentialHandler);
 
 router.route('/token')
     .post(userAuth.refreshAuthorisationHandler);
