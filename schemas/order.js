@@ -9,9 +9,9 @@ const orderSchema = new mongoose.Schema({
         required: true
     },
     todo: {
-        dry_wash: [{ type: serviceable }],
-        formal_wash: [{ type: serviceable }],
-        steam_iron: [{ type: serviceable }]
+        dry_wash: [{ type: serviceable, default: [] }],
+        formal_wash: [{ type: serviceable, default: [] }],
+        steam_iron: [{ type: serviceable, default: [] }]
     },
     status: {
         accepted: {
