@@ -12,8 +12,8 @@ POST http://localhost:4000/api/v1/usr/register HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Jay",
-    "email": "69@69.69",
+    "name": "Rishi",
+    "email": "68@68.68",
     "password": "11807c914e811b4574faed44cc5ec51e8e5300cf062251f2c0f64d2f911be6b387f6d55c680b19c5b5110c9ece36fe00ac1a5fccdf7b7a8e92cb9f7c1ffe30c4c5c1598834fd4d5538ca0737aa6c9920e591354339efdecec9c05a6a98cba179f2e5f377baeb936e781edc30960efe7ad48ab96883ae57aaa2b0e2201d8d0b7df742075b8d152e84e92d590261bde5eada232e3ff58c0e6c0d942f39b53a2842f280418d3e67c326ab0cfc76429c5daec6fc8cdf9ad53edf1ac79ca21a48252a7d8cf29b85c047fcc59171990b8cb5fc44ea0569c941aa3bbfaaf53e47c3df1136d4f98c092353d1bb05527470960ecb5a747a30e1146da7f7c34d093e7a44c6fbb6cbc4e44ef71eee17be39beee4ce119aae0e1b1640a94fefc19a9b8eab5acc489626539a7a0b782cd4229834ba72b395c14ee01bf9f3f0aa61e6d77b601c486844c24dd106e89a80e57fcb40561eca15717da030b2c85bd977935ee11e00b7a774388f0fb92cb4b1cf3e8bbc22554f6904203011349c627587aff4b57f3556b88aafa121f13b20f233dffe845a765084404f9164cbf8f900cb0fa4071804964571f26b12db3def4ae0963c8594f66098e7b0a0e92f970c831f8e7bd9e7b451ea89edce8103228c3a269440bef3ffdbd70a357ff5f8bc28dd067e886a7cdac581752c4b85190e8dcf03f75da373f1b4c2ec818f18b51d5139009cf7ec9d7d6",
     "phone": "7856941118"
 }
@@ -24,7 +24,7 @@ POST http://localhost:4000/api/v1/usr/login HTTP/1.1
 content-type: application/json
 
 {
-    "email": "69@69.69",
+    "email": "actual.mail@67.67",
     "password": "11807c914e811b4574faed44cc5ec51e8e5300cf062251f2c0f64d2f911be6b387f6d55c680b19c5b5110c9ece36fe00ac1a5fccdf7b7a8e92cb9f7c1ffe30c4c5c1598834fd4d5538ca0737aa6c9920e591354339efdecec9c05a6a98cba179f2e5f377baeb936e781edc30960efe7ad48ab96883ae57aaa2b0e2201d8d0b7df742075b8d152e84e92d590261bde5eada232e3ff58c0e6c0d942f39b53a2842f280418d3e67c326ab0cfc76429c5daec6fc8cdf9ad53edf1ac79ca21a48252a7d8cf29b85c047fcc59171990b8cb5fc44ea0569c941aa3bbfaaf53e47c3df1136d4f98c092353d1bb05527470960ecb5a747a30e1146da7f7c34d093e7a44c6fbb6cbc4e44ef71eee17be39beee4ce119aae0e1b1640a94fefc19a9b8eab5acc489626539a7a0b782cd4229834ba72b395c14ee01bf9f3f0aa61e6d77b601c486844c24dd106e89a80e57fcb40561eca15717da030b2c85bd977935ee11e00b7a774388f0fb92cb4b1cf3e8bbc22554f6904203011349c627587aff4b57f3556b88aafa121f13b20f233dffe845a765084404f9164cbf8f900cb0fa4071804964571f26b12db3def4ae0963c8594f66098e7b0a0e92f970c831f8e7bd9e7b451ea89edce8103228c3a269440bef3ffdbd70a357ff5f8bc28dd067e886a7cdac581752c4b85190e8dcf03f75da373f1b4c2ec818f18b51d5139009cf7ec9d7d6"
 }
 
@@ -38,10 +38,82 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJiMWRiO
 
 POST http://localhost:4000/api/v1/usr/cart HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJiMWRiODc0OTg4Y2RlZmZmODkwZmQiLCJlbWFpbCI6IjY5QDY5LjY5IiwiaWF0IjoxNjYzNzc3Njc3LCJleHAiOjE2NjM3Nzc2OTJ9.lTPYxXIVq8yAvvxykGoXmH2jWQHvH80DOomVyK_ZEn0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJmZjYxYjdiNzRjMzU2MGZmOTdlYTYiLCJlbWFpbCI6IjY4QDY4LjY4IiwiaWF0IjoxNjY0MDkzNTc1LCJleHAiOjE2NjQxMDI1NzV9.X4La6PjHaenHJyvq4L3XsOUflsvSjMwFQttpLnf6Cco
 
 {
-    "dry_wash": [{ "blazer": 69 }, { "saree": 96 }],
-    "steam_iron": [{ "blazer": 12 }, { "saree": 35 }]
+    "steam_iron": [],
+    "dry_wash": [{ "item":"blazer","quantity": 11 }, { "item":"saree","quantity": 85 }],
+    "formal_wash": [{ "item":"blazer","quantity": 11 }, { "item":"saree","quantity": 85 }]
 }
 
+###
+
+POST http://localhost:4000/api/v1/usr/new-order HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJmZjYxYjdiNzRjMzU2MGZmOTdlYTYiLCJlbWFpbCI6IjY4QDY4LjY4IiwiaWF0IjoxNjY0MDkzNTc1LCJleHAiOjE2NjQxMDI1NzV9.X4La6PjHaenHJyvq4L3XsOUflsvSjMwFQttpLnf6Cco
+
+###
+
+GET http://localhost:4000/api/v1/usr/order-history HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJmZjYxYjdiNzRjMzU2MGZmOTdlYTYiLCJlbWFpbCI6IjY4QDY4LjY4IiwiaWF0IjoxNjY0MDkzNTc1LCJleHAiOjE2NjQxMDI1NzV9.X4La6PjHaenHJyvq4L3XsOUflsvSjMwFQttpLnf6Cco
+
+###
+
+GET http://localhost:4000/api/v1/usr/profile HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJmZjYxYjdiNzRjMzU2MGZmOTdlYTYiLCJlbWFpbCI6IjY4QDY4LjY4IiwiaWF0IjoxNjY0MDkzNTc1LCJleHAiOjE2NjQxMDI1NzV9.X4La6PjHaenHJyvq4L3XsOUflsvSjMwFQttpLnf6Cco
+
+###
+
+POST http://localhost:4000/api/v1/usr/profile HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJmZjYxYjdiNzRjMzU2MGZmOTdlYTYiLCJlbWFpbCI6IjY4QDY4LjY4IiwiaWF0IjoxNjY0MDkzNTc1LCJleHAiOjE2NjQxMDI1NzV9.X4La6PjHaenHJyvq4L3XsOUflsvSjMwFQttpLnf6Cco
+
+{
+    "name": "Rishi",
+    "email": "68@68.68",
+    "phone": "7856941118",
+    "address": "Durga Mandir, Hehe, PIN-696969"
+}
+
+###
+
+POST http://localhost:4000/api/v1/usr/new-order HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJmZjYxYjdiNzRjMzU2MGZmOTdlYTYiLCJlbWFpbCI6IjY4QDY4LjY4IiwiaWF0IjoxNjY0MTAyODIyLCJleHAiOjE2NjQxMTE4MjJ9.VgDGehaCKTKzVNHjnozIi6F078T0M5KBC56zHXKV0Jk
+
+{
+    "steam_iron": [],
+    "dry_wash": [],
+    "formal_wash": []
+}
+
+###
+
+POST http://localhost:4000/api/v1/usr/change-credentials HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJmZjYxYjdiNzRjMzU2MGZmOTdlYTYiLCJlbWFpbCI6ImFjdHVhbC5tYWlsQDY3LjY3IiwiaWF0IjoxNjY0MTA2ODIyLCJleHAiOjE2NjQxMTU4MjJ9.j0hG8Zih35PaunJcfTntMg-EPCPEk-k6T1ga0AXEZsA
+
+{
+    "email": "68@68.68",
+    "password": "11807c914e811b4574faed44cc5ec51e8e5300cf062251f2c0f64d2f911be6b387f6d55c680b19c5b5110c9ece36fe00ac1a5fccdf7b7a8e92cb9f7c1ffe30c4c5c1598834fd4d5538ca0737aa6c9920e591354339efdecec9c05a6a98cba179f2e5f377baeb936e781edc30960efe7ad48ab96883ae57aaa2b0e2201d8d0b7df742075b8d152e84e92d590261bde5eada232e3ff58c0e6c0d942f39b53a2842f280418d3e67c326ab0cfc76429c5daec6fc8cdf9ad53edf1ac79ca21a48252a7d8cf29b85c047fcc59171990b8cb5fc44ea0569c941aa3bbfaaf53e47c3df1136d4f98c092353d1bb05527470960ecb5a747a30e1146da7f7c34d093e7a44c6fbb6cbc4e44ef71eee17be39beee4ce119aae0e1b1640a94fefc19a9b8eab5acc489626539a7a0b782cd4229834ba72b395c14ee01bf9f3f0aa61e6d77b601c486844c24dd106e89a80e57fcb40561eca15717da030b2c85bd977935ee11e00b7a774388f0fb92cb4b1cf3e8bbc22554f6904203011349c627587aff4b57f3556b88aafa121f13b20f233dffe845a765084404f9164cbf8f900cb0fa4071804964571f26b12db3def4ae0963c8594f66098e7b0a0e92f970c831f8e7bd9e7b451ea89edce8103228c3a269440bef3ffdbd70a357ff5f8bc28dd067e886a7cdac581752c4b85190e8dcf03f75da373f1b4c2ec818f18b51d5139009cf7ec9d7d6",
+    "new_email": "actual.mail@67.67",
+    "new_password": ""
+}
+
+###
+
+POST http://localhost:4000/api/v1/usr/token HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJmZjYxYjdiNzRjMzU2MGZmOTdlYTYiLCJlbWFpbCI6ImFjdHVhbC5tYWlsQDY3LjY3Iiwic2FsdCI6ImYyNjZhY2VkNzk3MzZlNzhlYTQzZGQ0ZmMxMDNmMjVjMjRmMjA4Nzk4YmVkY2Q0MDcxM2E1MGFkOTBlMmM4OWUiLCJpYXQiOjE2NjQyMTUxOTB9.0Bm4HAjd_KdU6SykYf3KlFnEOt_iKZ0p20H404mMS7E
+
+###
+
+POST http://localhost:4000/api/v1/usr/deregister HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJmZjYxYjdiNzRjMzU2MGZmOTdlYTYiLCJlbWFpbCI6ImFjdHVhbC5tYWlsQDY3LjY3IiwiaWF0IjoxNjY0Mjk5NTQ1LCJleHAiOjE2NjQzMDg1NDV9.46KWQrnly9nheMH7VoT6uBR2MXT7aW599mc50vHrzco
+
+{
+    "password": "11807c914e811b4574faed44cc5ec51e8e5300cf062251f2c0f64d2f911be6b387f6d55c680b19c5b5110c9ece36fe00ac1a5fccdf7b7a8e92cb9f7c1ffe30c4c5c1598834fd4d5538ca0737aa6c9920e591354339efdecec9c05a6a98cba179f2e5f377baeb936e781edc30960efe7ad48ab96883ae57aaa2b0e2201d8d0b7df742075b8d152e84e92d590261bde5eada232e3ff58c0e6c0d942f39b53a2842f280418d3e67c326ab0cfc76429c5daec6fc8cdf9ad53edf1ac79ca21a48252a7d8cf29b85c047fcc59171990b8cb5fc44ea0569c941aa3bbfaaf53e47c3df1136d4f98c092353d1bb05527470960ecb5a747a30e1146da7f7c34d093e7a44c6fbb6cbc4e44ef71eee17be39beee4ce119aae0e1b1640a94fefc19a9b8eab5acc489626539a7a0b782cd4229834ba72b395c14ee01bf9f3f0aa61e6d77b601c486844c24dd106e89a80e57fcb40561eca15717da030b2c85bd977935ee11e00b7a774388f0fb92cb4b1cf3e8bbc22554f6904203011349c627587aff4b57f3556b88aafa121f13b20f233dffe845a765084404f9164cbf8f900cb0fa4071804964571f26b12db3def4ae0963c8594f66098e7b0a0e92f970c831f8e7bd9e7b451ea89edce8103228c3a269440bef3ffdbd70a357ff5f8bc28dd067e886a7cdac581752c4b85190e8dcf03f75da373f1b4c2ec818f18b51d5139009cf7ec9d7d6"
+}
