@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config('../.env');
 
 const adminSchema = new mongoose.Schema({
-    username: {
+    email: {
         type: String,
         required: true
     },
@@ -15,4 +15,4 @@ const adminSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('user', userSchema, 'user-profiles');
+exports.adminModel = mongoose.model('admin', adminSchema, 'admin-profiles');
