@@ -5,7 +5,8 @@ const employeeSchema = new mongoose.Schema({
     meta: {
         is_activated: {
             type: Boolean,
-            required: true
+            required: true,
+            default: true
         }
     },
     name: {
