@@ -3,10 +3,11 @@ const { employeeModel } = require("../../schemas/employee");
 exports.getEmployeeProfileHandler = async (req, res) => {
     try {
         if (!req.query.id) {
-            const employeeObjs = await employeeModel.find()
+            const employeeObjs = await employeeModel.find({})
                     .populate('name', 'email', 'phone', 'attendance', 'createdAt', 'updatedAt')
                     .sort({ name: 1 })
-                    .limit(req.query.quantity || 1000);
+                    .limit(req.query.quantity || 1000)
+                    .skip(req.query.skip || 0);
             
             return res.status(200).json({
                 success: true,
