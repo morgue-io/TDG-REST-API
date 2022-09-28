@@ -29,7 +29,11 @@ const employeeSchema = new mongoose.Schema({
     },
     attendance: [{
         type: String
-    }]
+    }],
+    shipping_history: {
+        pick_up: [String],
+        delivery: [String]
+    }
 }, {
     versionKey: false,
     timestamps: true
