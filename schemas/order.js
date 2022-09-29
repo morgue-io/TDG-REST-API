@@ -8,6 +8,10 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true
     },
+    address: {
+        type: String,
+        required: true
+    },
     todo: {
         dry_wash: [{ type: serviceable, default: [] }],
         formal_wash: [{ type: serviceable, default: [] }],
