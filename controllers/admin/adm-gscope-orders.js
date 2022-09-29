@@ -1,4 +1,5 @@
 const { orderModel } = require("../../schemas/order");
+const { getLocalTime } = require("../../utils/local-time");
 
 exports.getGscopeOrders = async (req, res) => {
     try {
@@ -12,6 +13,25 @@ exports.getGscopeOrders = async (req, res) => {
             message: 'GET Acknowledged',
             payload: orderObjs
         });
+    } catch (e) {
+        res.status(500).json({
+            success: false,
+            message: process.env.DEBUG_MODE ? e.message : 'An error was encountered, check your request and try again'
+        });
+    }
+};
+
+exports.postGscopeOrdersStatusHandler = async (req, res) => {
+    try {
+        if (!req.query.id)
+            return res.status(400).json({
+                success: false,
+                message: '`id` query parameter missing'
+            });
+        
+        const orderObj = await orderModel.findOne({ _id: req.query.id });
+        orderObj.status = req.body;
+        await orderObj.save();
     } catch (e) {
         res.status(500).json({
             success: false,
