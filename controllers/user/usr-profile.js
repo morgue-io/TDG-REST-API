@@ -54,7 +54,7 @@ exports.postUserCredentialHandler = async (req, res) => {
         if (!req.USEROBJ)
             throw new Error('Fatal: USEROBJ key not found on request');
 
-        const userObj = await userModel.findOne({ username: req.USEROBJ.email });
+        const userObj = await userModel.findOne({ email: req.USEROBJ.email });
 
         if (sha256_hex(decrypt(req.body.password)) !== userObj.password) {
             res.status(401).json({
