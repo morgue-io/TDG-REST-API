@@ -1,7 +1,7 @@
 const { orderModel } = require("../../schemas/order");
 const { getLocalTime } = require("../../utils/local-time");
 
-exports.getGscopeOrders = async (req, res) => {
+exports.getGscopeOrdersHandler = async (req, res) => {
     try {
         const orderObjs = await orderModel.find({})
                 .sort({ createdAt: -1 })
