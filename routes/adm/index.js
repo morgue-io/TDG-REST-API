@@ -27,7 +27,7 @@ router.route('/employee-register')
     .post(admAuth.authorisationHandler, admEmpRegister.registrationHandler);
 
 router.route('/employee-deregister')
-    .post(admAuth.authorisationHandler, admProfile.deregistrationHandler);
+    .post(admAuth.authorisationHandler, admEmpRegister.deregistrationHandler);
 
 router.route('/employee-view')
     .get(admAuth.authorisationHandler, admEmpProfile.getEmployeeProfileHandler);
