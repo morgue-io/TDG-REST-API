@@ -8,6 +8,6 @@ router.use('/usr', require('./usr/index'));
 // router.use('/emp', require('./emp/index.js'));
 
 // routes for the admin dashboard
-// router.use('/adm', require('./adm/index.js'));
+router.use('/adm', require('./adm/index.js'));
 
 module.exports = router;
