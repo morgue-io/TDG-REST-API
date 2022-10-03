@@ -12,32 +12,22 @@ exports.postUserCredentialHandler = async (req, res) => {
         const adminObj = await adminModel.findOne({ username: req.ADMINOBJ.email });
 
         if (sha256_hex(decrypt(req.body.password)) !== adminObj.password) {
-            res.status(401).json({
+            return res.status(401).json({
                 success: false,
                 message: 'Admin credentials invalid'
             });
         } else {
-            adminObj.email =
-                Boolean(req.body.new_email) ?
-                    req.body.new_email : adminObj.email;
-
-            adminObj.password =
-                Boolean(req.body.new_password) ?
-                    sha256_hex(decrypt(req.body.new_password)) : adminObj.password;
+            adminObj.password = sha256_hex(decrypt(req.body.new_password));
             
             await adminObj.save();
 
-            await rtokenModel.deleteMany({
-                email: req.body.email,
-                utype: 'admin'
-            });
-
             return res.status(200).json({
                 success: true,
-                message: "Credentials updated: Logged Out"
+                message: "Credentials updated"
             });
         }
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE ? e.message : 'An error was encountered, check your request and try again'

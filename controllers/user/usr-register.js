@@ -24,6 +24,7 @@ exports.registrationHandler = async (req, res) => {
             message: 'Registered'
         });
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE? e.message : 'An error was encountered, check your request and try again'
@@ -56,6 +57,7 @@ exports.deregistrationHandler = async (req, res) => {
             });
         }
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE? e.message : 'An error was encountered, check your request and try again'

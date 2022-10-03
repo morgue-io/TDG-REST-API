@@ -14,6 +14,7 @@ exports.getGscopeOrdersHandler = async (req, res) => {
             payload: orderObjs
         });
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE ? e.message : 'An error was encountered, check your request and try again'
@@ -29,10 +30,15 @@ exports.postGscopeOrdersStatusHandler = async (req, res) => {
                 message: '`id` query parameter missing'
             });
         
-        const orderObj = await orderModel.findOne({ _id: req.query.id });
-        orderObj.status = req.body;
-        await orderObj.save();
+        console.log(req.body.status);
+        const orderObj = await orderModel.findOneAndUpdate({ _id: req.query.id }, { status: req.body.status });
+
+        return res.status(200).json({
+            success: true,
+            message: 'Status updated'
+        });
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE ? e.message : 'An error was encountered, check your request and try again'

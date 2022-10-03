@@ -20,6 +20,7 @@ exports.getUserProfileHandler = async (req, res) => {
             }
         });
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE ? e.message : 'An error was encountered, check your request and try again'
@@ -41,6 +42,7 @@ exports.postUserProfiletHandler = async (req, res) => {
             message: 'Updated'
         });
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE ? e.message : 'An error was encountered, check your request and try again'
@@ -75,7 +77,7 @@ exports.postUserCredentialHandler = async (req, res) => {
                     email: userObj.email
                 },
                 process.env.JWT_SECRET,
-                { expiresIn: process.env.JWT_EXP }
+                { expiresIn: parseInt(process.env.JWT_EXP) }
             );
             const token_refresh = jwt.sign({
                     _id: userObj._id,
@@ -104,6 +106,7 @@ exports.postUserCredentialHandler = async (req, res) => {
             });
         }
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE ? e.message : 'An error was encountered, check your request and try again'

@@ -26,7 +26,7 @@ router.route('/cart')
     .post(userAuth.authorisationHandler, userCart.postCartHandler);
 
 router.route('/order-history')
-    .get(userAuth.authorisationHandler, userOrders.getOrderHistoryHandler);
+    .get(userAuth.authorisationHandler, userOrders.getOrderHistoryHandler)
 
 router.route('/new-order')
     .post(userAuth.authorisationHandler, userOrders.postNewOrderHandler);

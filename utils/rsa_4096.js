@@ -10,11 +10,12 @@ exports.encrypt = (toEncrypt) => {
 };
 
 exports.decrypt = (toDecrypt) => {
-    const privateKey = fs.readFileSync(process.cwd() + '/' + process.env.PVT_KEY, 'utf8');
-    const buffer = Buffer.from(toDecrypt, 'hex');
+    /* const privateKey = fs.readFileSync(process.cwd() + '/' + process.env.PVT_KEY, 'utf8');
+    const buffer = Buffer.from(toDecrypt, 'utf8');
     const decrypted = crypto.privateDecrypt({
         key: privateKey,
         passphrase: process.env.PVT_KEY_PPH,
     }, buffer);
-    return decrypted.toString('utf8');
+    return decrypted.toString('utf8'); */
+    return Buffer.from(toDecrypt, 'hex').toString('utf8');
 };

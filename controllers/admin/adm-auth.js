@@ -31,6 +31,7 @@ exports.authorisationHandler = async (req, res, next) => {
             });
         }
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE? e.message : 'An error was encountered, check your request and try again'
@@ -50,8 +51,14 @@ exports.refreshAuthorisationHandler = async (req, res, next) => {
                     message: 'Invalid token'
                 });
 
-            const adminObj = await adminModel.findOne({ email: rtokenObj.username });
-            const token = jwt.sign(adminObj, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXP });
+            const adminObj = await adminModel.findOne({ email: rtokenObj.email });
+            const token = jwt.sign({
+                    _id: adminObj._id,
+                    email: adminObj.email
+                }, 
+                process.env.JWT_SECRET,
+                { expiresIn: parseInt(process.env.JWT_EXP) }
+            );
 
             return res.status(200).json({
                 success: true,
@@ -66,6 +73,7 @@ exports.refreshAuthorisationHandler = async (req, res, next) => {
             });
         }
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE? e.message : 'An error was encountered, check your request and try again'

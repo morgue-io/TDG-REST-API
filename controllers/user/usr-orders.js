@@ -15,6 +15,7 @@ exports.getOrderHistoryHandler = async (req, res) => {
             payload: orderHistory
         });
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE ? e : 'An error was encountered, check your request and try again'
@@ -52,6 +53,7 @@ exports.postNewOrderHandler = async (req, res) => {
             message: 'Order placed'
         });
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE ? e.message : 'An error was encountered, check your request and try again'

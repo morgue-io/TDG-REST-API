@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 module.exports = {
     item: {
         type: String,
-        enum: ['blazer', 'shirt-and-tshirt', 'pant-and-trousers', 'saree', 'ladies-upper', 'ladies-lower', 'cloths-and-others']
+        enum: ['blazer', 'shirt_and_tshirt', 'pant_and_trousers', 'saree', 'ladies_upper', 'ladies_lower', 'cloths_and_others']
     },
     quantity: {
         type: Number,

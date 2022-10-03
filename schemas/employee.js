@@ -5,7 +5,6 @@ const employeeSchema = new mongoose.Schema({
     meta: {
         is_activated: {
             type: Boolean,
-            required: true,
             default: true
         }
     },
@@ -27,16 +26,20 @@ const employeeSchema = new mongoose.Schema({
         min: 10,
         max: 10
     },
-    attendance: [{
-        type: String
-    }],
-    shipping_history: {
-        pick_up: [String],
-        delivery: [String]
+    attendance: {
+        type: [String]
+    },
+    service_history: {
+        pick_up: {
+            type: [String]
+        },
+        delivery: {
+            type: [String]
+        }
     }
 }, {
     versionKey: false,
-    timestamps: true
+        timestamps: true
 });
 
 exports.employeeModel = mongoose.model('employee', employeeSchema, 'employee-profiles');

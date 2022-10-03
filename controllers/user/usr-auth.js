@@ -31,6 +31,7 @@ exports.authorisationHandler = async (req, res, next) => {
             });
         }
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE? e.message : 'An error was encountered, check your request and try again'
@@ -78,6 +79,7 @@ exports.refreshAuthorisationHandler = async (req, res) => {
             });
         }
     } catch (e) {
+        console.error(e);
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE? e.message : 'An error was encountered, check your request and try again'

@@ -1,15 +1,12 @@
-const { userModel } = require("../../schemas/user");
+const { billboardModel } = require("../../schemas/billboard");
 require('dotenv').config();
 
-exports.getCartHandler = async (req, res) => {
+exports.getBillboardHandler = async (req, res) => {
     try {
-        if (!req.USEROBJ)
-                throw new Error('Fatal: USEROBJ key not found on request');
-
         res.status(200).json({
             success: true,
-            message: 'All good',
-            payload: req.USEROBJ.cart
+            message: 'GET Acknowledged',
+            payload: [await billboardModel.findById(process.env.BILLBOARD_OBJ)]
         });
     } catch (e) {
         console.error(e);
@@ -20,18 +17,17 @@ exports.getCartHandler = async (req, res) => {
     }
 };
 
-exports.postCartHandler = async (req, res) => {
+exports.postBillboardHandler = async (req, res) => {
     try {
-        if (!req.USEROBJ)
-            throw new Error('Fatal: USEROBJ key not found on request');
-        
-        const userObj = await userModel.findOne({ _id: req.USEROBJ._id });
-        userObj.cart = req.body;
-        await userObj.save();
+        console.log(await billboardModel.findByIdAndUpdate(process.env.BILLBOARD_OBJ, {
+            formal_wash: req.body.formal_wash,
+            dry_wash: req.body.dry_wash,
+            steam_iron: req.body.steam_iron
+        }));
 
         res.status(200).json({
             success: true,
-            message: 'Updated'
+            message: 'Updated billboard'
         });
     } catch (e) {
         console.error(e);
