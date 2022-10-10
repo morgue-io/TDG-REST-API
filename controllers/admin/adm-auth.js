@@ -40,7 +40,7 @@ exports.authorisationHandler = async (req, res, next) => {
 };
 
 /* Function to create new authorisation token from refresh token after the latter's expiry */
-exports.refreshAuthorisationHandler = async (req, res, next) => {
+exports.refreshAuthorisationHandler = async (req, res) => {
     try {
         if (req.headers.authorization) {
             const rtokenObj = await rtokenModel.findOne({ rtoken: req.headers.authorization.split(' ')[1] });
