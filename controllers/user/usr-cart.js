@@ -25,9 +25,7 @@ exports.postCartHandler = async (req, res) => {
         if (!req.USEROBJ)
             throw new Error('Fatal: USEROBJ key not found on request');
         
-        const userObj = await userModel.findOne({ _id: req.USEROBJ._id });
-        userObj.cart = req.body;
-        await userObj.save();
+        const userObj = await userModel.findOneAndUpdate({ _id: req.USEROBJ._id }, { cart: req.body });
 
         res.status(200).json({
             success: true,
