@@ -36,7 +36,7 @@ exports.postNewOrderHandler = async (req, res) => {
 
         const newOrder = new orderModel({
             customer: userObj._id,
-            address: userObj.address,
+            address: req.body.address,
             todo: userObj.cart
         });
         await newOrder.save();
