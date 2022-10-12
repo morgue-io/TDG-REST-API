@@ -13,7 +13,7 @@ exports.authorisationHandler = async (req, res, next) => {
                         success: false,
                         message: process.env.DEBUG_MODE? err.message : 'An error was encountered, check your request and try again'
                     });
-                } else if (await rtokenModel.findOne({ email: userObj.email, utype: 'user' }) != null) {
+                } else if (await rtokenModel.findOne({ email: userObj.email, utype: 'customer' }) != null) {
                     req.IS_AUTH = true;
                     req.USEROBJ = await userModel.findOne({ _id: userObj._id });
                     return next();
