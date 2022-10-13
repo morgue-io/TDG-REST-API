@@ -14,9 +14,7 @@ exports.registrationHandler = async (req, res) => {
         }
 
         const newUserObj = new userModel(req.body);
-        const decryptedPwd = decrypt(newUserObj.password);
-        const pwdHash = sha256_hex(decryptedPwd);
-        newUserObj.password = pwdHash;
+        newUserObj.password = sha256_hex(req.body.password);
         await newUserObj.save();
 
         res.status(200).json({
