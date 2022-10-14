@@ -38,7 +38,7 @@ exports.postAssignOrderPickupHandler = async (req, res) => {
             { _id: req.query.id }, 
             { 
                 'status.picked_up.assignee_id': req.USEROBJ._id,
-                'status.delivered.assignee_name': req.USEROBJ.name
+                'status.picked_up.assignee_name': req.USEROBJ.name
             }
         );
 
@@ -73,7 +73,10 @@ exports.postAssignOrderDeliveryHandler = async (req, res) => {
 
         await orderModel.findOneAndUpdate(
             { _id: req.query.id }, 
-            { 'status.delivered.assignee_id': req.USEROBJ._id }
+            { 
+                'status.delivered.assignee_id': req.USEROBJ._id,
+                'status.delivered.assignee_name': req.USEROBJ.name
+            }
         );
 
         await employeeModel.findOneAndUpdate(

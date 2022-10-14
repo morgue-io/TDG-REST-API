@@ -257,4 +257,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzNhODYwN
 
 ###
 
-POST http://localhost:4000/api/v1/emp/
+POST http://localhost:4000/api/v1/emp/orders/self-assign/pick-up?id=6349ec40e31ad2a703ec29f5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ5Y2Q3MTNiNzVjMWU2NDk4YzA1MWUiLCJlbWFpbCI6ImkuaUBpIiwiaWF0IjoxNjY1Nzg1MDc2LCJleHAiOjUyNjU3ODUwNzZ9.BsIZprSeWzyGbi-tpYnFV7zhUf6Np4XpsRekT0c48M8
+
+###
+
+POST http://localhost:4000/api/v1/emp/orders/self-assign/delivery/done?id=6349eaf245b1626507eff6c6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ5Y2Q3MTNiNzVjMWU2NDk4YzA1MWUiLCJlbWFpbCI6ImkuaUBpIiwiaWF0IjoxNjY1Nzg1MDc2LCJleHAiOjUyNjU3ODUwNzZ9.BsIZprSeWzyGbi-tpYnFV7zhUf6Np4XpsRekT0c48M8
+
+###
+
+GET http://localhost:4000/api/v1/emp/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ5Y2Q3MTNiNzVjMWU2NDk4YzA1MWUiLCJlbWFpbCI6ImkuaUBpIiwiaWF0IjoxNjY1Nzg1MDc2LCJleHAiOjUyNjU3ODUwNzZ9.BsIZprSeWzyGbi-tpYnFV7zhUf6Np4XpsRekT0c48M8
