@@ -156,23 +156,25 @@ exports.getTasksHandler = async (req, res) => {
 
         var tasks = await orderModel.find({
             $or: [
-                { 'status.picked_up.assignee': req.USEROBJ._id, 'status.picked_up.state': false },
-                { 'status.delivered.assignee': req.USEROBJ._id, 'status.delivered.state': false }
+                { 'status.picked_up.assignee_id': req.USEROBJ._id, 'status.picked_up.state': false },
+                { 'status.delivered.assignee_id': req.USEROBJ._id, 'status.delivered.state': false }
             ]
         });
 
         var pickeups = [], deliveries = [];
 
         tasks.forEach(item => {
-            if (item.status.picked_up.assignee === req.USEROBJ._id)
+            if (item.status.picked_up.assignee_id === req.USEROBJ._id)
                 pickeups.push({
-                    customer: item.customer,
+                    customer_id: item.customer_id,
+                    customer_name: item.customer_name,
                     address: item.address,
                     verif_code: item.verif_code
                 });
-            else if (item.status.delivered.assignee === req.USEROBJ._id)
+            else if (item.status.delivered.assignee_id === req.USEROBJ._id)
                 deliveries.push({
-                    customer: item.customer,
+                    customer_id: item.customer_id,
+                    customer_name: item.customer_name,
                     address: item.address,
                     verif_code: item.verif_code
                 });
