@@ -30,7 +30,7 @@ const orderSchema = new mongoose.Schema({
             },
             time: {
                 type: String,
-                default: getLocalTime()
+                default: getLocalTime
             }
         },
         picked_up: {
@@ -50,7 +50,7 @@ const orderSchema = new mongoose.Schema({
             },
             verif_code: {
                 type: String,
-                default: crypto.randomBytes(4).toString('hex').toUpperCase()
+                default: () => crypto.randomBytes(4).toString('hex').toUpperCase()
             },
         },
         processing: {

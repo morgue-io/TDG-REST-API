@@ -17,7 +17,7 @@ const rtokenSchema = new mongoose.Schema({
     },
     expire_at: {
         type: String,
-        default: Date.now() + parseInt(process.env.JWT_REFRESH_EXP)
+        default: () => { Date.now() + parseInt(process.env.JWT_REFRESH_EXP) }
     }
 }, {
     versionKey: false,
