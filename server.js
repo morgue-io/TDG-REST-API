@@ -11,7 +11,7 @@ const { interpret } = require('./utils/interpret');
 const app = express();
 dotenv.config();
 connectdb();
-sweepRefToken.start();
+// sweepRefToken.start();
 
 /* middleswares */
 app.use(express.json({limit: '30mb'}));

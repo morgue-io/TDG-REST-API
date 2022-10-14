@@ -5,8 +5,12 @@ const crypto = require('crypto')
 require('dotenv').config('../.env');
 
 const orderSchema = new mongoose.Schema({
-    customer: {
+    customer_id: {
         type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
+    customer_name: {
+        type: String,
         required: true
     },
     address: {
@@ -76,7 +80,7 @@ const orderSchema = new mongoose.Schema({
             },
             verif_code: {
                 type: String,
-                default: crypto.randomBytes(4).toString('hex').toUpperCase()
+                default: 'VOID_STRING'
             }
         }
     }

@@ -5,7 +5,7 @@ const router = express.Router();
 router.use('/usr', require('./usr/index'));
 
 // routes for the employee applet
-// router.use('/emp', require('./emp/index.js'));
+router.use('/emp', require('./emp/index.js'));
 
 // routes for the admin dashboard
 router.use('/adm', require('./adm/index'));

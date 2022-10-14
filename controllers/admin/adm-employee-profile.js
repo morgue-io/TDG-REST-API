@@ -1,5 +1,7 @@
 const { employeeModel } = require("../../schemas/employee");
 const { rtokenModel } = require("../../schemas/rtoken");
+const { decrypt } = require("../../utils/rsa_4096");
+const { sha256_hex } = require("../../utils/sha256");
 
 exports.getEmployeeProfileHandler = async (req, res) => {
     try {
@@ -37,8 +39,16 @@ exports.getEmployeeProfileHandler = async (req, res) => {
 exports.postEmployeeDetailsHandler = async (req, res) => {
     try {
         if (!req.query.id) {
+            if (!!(await employeeModel.findOne({ email: req.body.email }))) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'Email already registered'
+                });
+            }
+
             console.log(req.body);
             const newEmployeeObj = new employeeModel(req.body);
+            newEmployeeObj.password = sha256_hex(decrypt(newEmployeeObj.password))
             await newEmployeeObj.save();
 
             return res.status(200).json({

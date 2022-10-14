@@ -142,13 +142,13 @@ content-type: application/json
 
 ###
 
-GET http://localhost:4000/api/v1/adm/orders HTTP/1.1
+POST http://localhost:4000/api/v1/adm/login HTTP/1.1
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzM3OTU0ZTE3NWZhYzkzNmVkODI0NjgiLCJlbWFpbCI6IjY4QDY4LjY4IiwiaWF0IjoxNjY0NTg3ODAwLCJleHAiOjE2NjQ1OTY4MDB9.h_7ewdPrDAPtkg-XQu3zufH9YgD-_6CH52eLwcrWKHk
 
 {
-    "email": "68@68.68",
-    "password": "11807c914e811b4574faed44cc5ec51e8e5300cf062251f2c0f64d2f911be6b387f6d55c680b19c5b5110c9ece36fe00ac1a5fccdf7b7a8e92cb9f7c1ffe30c4c5c1598834fd4d5538ca0737aa6c9920e591354339efdecec9c05a6a98cba179f2e5f377baeb936e781edc30960efe7ad48ab96883ae57aaa2b0e2201d8d0b7df742075b8d152e84e92d590261bde5eada232e3ff58c0e6c0d942f39b53a2842f280418d3e67c326ab0cfc76429c5daec6fc8cdf9ad53edf1ac79ca21a48252a7d8cf29b85c047fcc59171990b8cb5fc44ea0569c941aa3bbfaaf53e47c3df1136d4f98c092353d1bb05527470960ecb5a747a30e1146da7f7c34d093e7a44c6fbb6cbc4e44ef71eee17be39beee4ce119aae0e1b1640a94fefc19a9b8eab5acc489626539a7a0b782cd4229834ba72b395c14ee01bf9f3f0aa61e6d77b601c486844c24dd106e89a80e57fcb40561eca15717da030b2c85bd977935ee11e00b7a774388f0fb92cb4b1cf3e8bbc22554f6904203011349c627587aff4b57f3556b88aafa121f13b20f233dffe845a765084404f9164cbf8f900cb0fa4071804964571f26b12db3def4ae0963c8594f66098e7b0a0e92f970c831f8e7bd9e7b451ea89edce8103228c3a269440bef3ffdbd70a357ff5f8bc28dd067e886a7cdac581752c4b85190e8dcf03f75da373f1b4c2ec818f18b51d5139009cf7ec9d7d6"
+    "email": "admin.0@tdg.com",
+    "password": "746467313233"
 }
 
 ###
@@ -197,7 +197,7 @@ GET http://localhost:4000/api/v1/crypto/public HTTP/1.1
 
 ###
 
-POST https//tdg-api.onrender.com/api/v1/usr/register HTTP/1.1
+POST http://localhost:4000/api/v1/usr/register HTTP/1.1
 content-type: application/json
 
 {
@@ -205,4 +205,52 @@ content-type: application/json
     "email": "jayantapandit@outlook.in",
     "password": "616263",
     "phone": "7856941118"
+}
+
+###
+
+
+
+GET https://tdg-apiv1.herokuapp.com/api/v1/usr/cart HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQzMjk3MzBmNTE2NWY5ZjMzY2U3NmMiLCJlbWFpbCI6ImpheWFudGFwYW5kaXRAb3V0bG9vay5pbiIsImlhdCI6MTY2NTYxMjYyOSwiZXhwIjoyMDI1NjEyNjI5fQ.xbqfm1Q-T5_aXLnxCezT_OUS8BF2jLrJdi7nHQM-Cs4
+
+###
+
+POST https://tdg-apiv1.herokuapp.com/api/v1/usr/login HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQzMjk3MzBmNTE2NWY5ZjMzY2U3NmMiLCJlbWFpbCI6ImpheWFudGFwYW5kaXRAb3V0bG9vay5pbiIsImlhdCI6MTY2NTYxMTcyMCwiZXhwIjoxNjY1NjE1MzIwfQ.TZPiV1hZvtzVF_OuBebgb6iGiq7gN2eP4q58W0_hpZw
+
+{
+    "email":"jayantapandit@outlook.in",
+    "password":"616263"
+}
+
+###
+
+GET https://tdg-apiv1.herokuapp.com/api/v1/usr/order-history HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQzMjk3MzBmNTE2NWY5ZjMzY2U3NmMiLCJlbWFpbCI6ImpheWFudGFwYW5kaXRAb3V0bG9vay5pbiIsImlhdCI6MTY2NTY0NDUzNSwiZXhwIjoyMDI1NjQ0NTM1fQ.jzqwcN8uBldHdFky1gfo0APcALeKTj1eUiBevdYzdy4
+
+###
+POST http://localhost:4000/api/v1/adm/employee-view HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzNhODYwNDQ2MDBkMTE0NTY1ZGExZWMiLCJlbWFpbCI6ImFkbWluLjBAdGRnLmNvbSIsImlhdCI6MTY2NTc4MTA1OSwiZXhwIjo1MjY1NzgxMDU5fQ.m5ediSURmxdaj5EMhYUyDzLPfbb33ZDUU6iHhaW_6YE
+
+{
+    "email": "i.i@i",
+    "password": "637261636b68656164",
+    "name": "crackhead.io",
+    "phone": "7856941118"
+}
+
+###
+
+POST http://localhost:4000/api/v1/emp/login HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzNhODYwNDQ2MDBkMTE0NTY1ZGExZWMiLCJlbWFpbCI6ImFkbWluLjBAdGRnLmNvbSIsImlhdCI6MTY2NTc4MTA1OSwiZXhwIjo1MjY1NzgxMDU5fQ.m5ediSURmxdaj5EMhYUyDzLPfbb33ZDUU6iHhaW_6YE
+
+{
+    "email": "i.i@i",
+    "password": "637261636b68656164"
 }

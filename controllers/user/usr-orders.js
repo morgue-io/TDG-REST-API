@@ -35,7 +35,8 @@ exports.postNewOrderHandler = async (req, res) => {
                     throw new Error('Invalid request: Cart is empty');
 
         const newOrder = new orderModel({
-            customer: userObj._id,
+            customer_id: userObj._id,
+            customer_name: userObj.name,
             address: req.body.address,
             todo: userObj.cart
         });
