@@ -254,3 +254,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzNhODYwN
     "email": "i.i@i",
     "password": "637261636b68656164"
 }
+
+###
+
+POST http://localhost:4000/api/v1/emp/

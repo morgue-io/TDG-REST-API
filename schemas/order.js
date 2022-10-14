@@ -72,10 +72,14 @@ const orderSchema = new mongoose.Schema({
                 type: String,
                 default: null
             },
-            assignee: {
+            assignee_id: {
                 /* this field will contain a Mongo DBRef to a doc in employee Model 
                 to announce voluntary task assignment state by employee client */
                 type: mongoose.Schema.Types.ObjectId,
+                default: null
+            },
+            assignee_name: {
+                type: String,
                 default: null
             },
             verif_code: {

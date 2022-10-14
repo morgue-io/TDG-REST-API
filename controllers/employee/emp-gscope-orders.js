@@ -1,16 +1,13 @@
 const { employeeModel } = require("../../schemas/employee");
 const { orderModel } = require("../../schemas/order");
+const { getLocalTime } = require("../../utils/local-time");
 
 exports.getGscopeOrdersHandler = async (req, res) => {
     try {
-        const orderObjs = await orderModel.find({
-            $or: [
-                { 'status.picked_up.assignee': req.USEROBJ._id, 'status.picked_up.state': false },
-                { 'status.delivered.assignee': req.USEROBJ._id, 'status.delivered.state': false }
-            ]
-        }).sort({ createdAt: -1 })
-        .limit(req.query.quantity || 1000)
-        .skip(((req.query.page - 1) * req.query.quantity) || 0);
+        const orderObjs = await orderModel.find({})
+            .sort({ createdAt: -1 })
+            .limit(req.query.quantity || 1000)
+            .skip(((req.query.page - 1) * req.query.quantity) || 0);
         
         return res.status(200).json({
             success: true,
@@ -39,7 +36,10 @@ exports.postAssignOrderPickupHandler = async (req, res) => {
 
         let doc = await orderModel.findOneAndUpdate(
             { _id: req.query.id }, 
-            { 'status.picked_up.assignee': req.USEROBJ._id }
+            { 
+                'status.picked_up.assignee_id': req.USEROBJ._id,
+                'status.delivered.assignee_name': req.USEROBJ.name
+            }
         );
 
         await employeeModel.findOneAndUpdate(
@@ -73,7 +73,7 @@ exports.postAssignOrderDeliveryHandler = async (req, res) => {
 
         await orderModel.findOneAndUpdate(
             { _id: req.query.id }, 
-            { 'status.delivered.assignee': req.USEROBJ._id }
+            { 'status.delivered.assignee_id': req.USEROBJ._id }
         );
 
         await employeeModel.findOneAndUpdate(
@@ -101,9 +101,16 @@ exports.postAssignOrderPickupDoneHandler = async (req, res) => {
 
         await orderModel.findOneAndUpdate(
             { _id: req.query.id }, 
-            { 'status.picked_up.state': true }
+            {
+                'status.picked_up.state': true,
+                'status.picked_up.time': getLocalTime()
+            }
         );
-        
+
+        return res.status(200).json({
+            success: true,
+            message: 'Status updated'
+        });        
     } catch (e) {
         console.error(e);
         res.status(500).json({
@@ -120,9 +127,16 @@ exports.postAssignOrderDeliveryDoneHandler = async (req, res) => {
 
         await orderModel.findOneAndUpdate(
             { _id: req.query.id }, 
-            { 'status.delivered.state': true }
+            { 
+                'status.delivered.state': true,
+                'status.delivered.time': getLocalTime()
+            }
         );
         
+        return res.status(200).json({
+            success: true,
+            message: 'Status updated'
+        });
     } catch (e) {
         console.error(e);
         res.status(500).json({
@@ -142,7 +156,7 @@ exports.getTasksHandler = async (req, res) => {
                 { 'status.picked_up.assignee': req.USEROBJ._id, 'status.picked_up.state': false },
                 { 'status.delivered.assignee': req.USEROBJ._id, 'status.delivered.state': false }
             ]
-        })
+        });
 
         var pickeups = [], deliveries = [];
 
@@ -152,7 +166,13 @@ exports.getTasksHandler = async (req, res) => {
                     customer: item.customer,
                     address: item.address,
                     verif_code: item.verif_code
-                })
+                });
+            else if (item.status.delivered.assignee === req.USEROBJ._id)
+                deliveries.push({
+                    customer: item.customer,
+                    address: item.address,
+                    verif_code: item.verif_code
+                });
         })
 
         return res.status(200).json({
@@ -160,7 +180,6 @@ exports.getTasksHandler = async (req, res) => {
             message: 'GET Acknowledged',
             payload: tasks
         })
-
     } catch (e) {
         console.error(e);
         res.status(500).json({
