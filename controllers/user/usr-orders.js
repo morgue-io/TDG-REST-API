@@ -8,7 +8,7 @@ exports.getOrderHistoryHandler = async (req, res) => {
         if (!req.USEROBJ)
             throw new Error('Fatal: USEROBJ key not found on request');
 
-        const orderHistory = await orderModel.find({ customer: req.USEROBJ._id });
+        const orderHistory = await orderModel.find({ customer_id: req.USEROBJ._id }).sort({ createdAt: -1 });
         res.status(200).json({
             success: true,
             message: 'All good',
