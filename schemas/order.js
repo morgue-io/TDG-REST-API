@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { getLocalTime } = require('../utils/local-time');
 const serviceable = require('./serviceable');
+const crypto = require('crypto')
 require('dotenv').config('../.env');
 
 const orderSchema = new mongoose.Schema({
@@ -42,7 +43,11 @@ const orderSchema = new mongoose.Schema({
                 to announce voluntary task assignment state by employee client */
                 type: mongoose.Schema.Types.ObjectId,
                 default: null
-            }
+            },
+            verif_code: {
+                type: String,
+                default: crypto.randomBytes(4).toString('hex').toUpperCase()
+            },
         },
         processing: {
             state: {
@@ -68,6 +73,10 @@ const orderSchema = new mongoose.Schema({
                 to announce voluntary task assignment state by employee client */
                 type: mongoose.Schema.Types.ObjectId,
                 default: null
+            },
+            verif_code: {
+                type: String,
+                default: crypto.randomBytes(4).toString('hex').toUpperCase()
             }
         }
     }
