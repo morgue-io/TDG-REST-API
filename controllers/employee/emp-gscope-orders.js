@@ -43,7 +43,7 @@ exports.postAssignOrderPickupHandler = async (req, res) => {
         );
 
         await employeeModel.findOneAndUpdate(
-            { _id: req.USEROBJ._id },
+            { _id: req.USEROBJ._id, 'service_history.pick_up': {  $nin: req.query.id } },
             { $push: { 'service_history.pick_up': req.query.id } }
         );
 
@@ -80,7 +80,7 @@ exports.postAssignOrderDeliveryHandler = async (req, res) => {
         );
 
         await employeeModel.findOneAndUpdate(
-            { _id: req.USEROBJ._id },
+            { _id: req.USEROBJ._id, 'service_history.delivery': {  $nin: req.query.id } },
             { $push: { 'service_history.delivery': req.query.id } }
         );
 
