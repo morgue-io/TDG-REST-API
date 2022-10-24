@@ -183,7 +183,10 @@ exports.getTasksHandler = async (req, res) => {
         return res.status(200).json({
             success: true,
             message: 'GET Acknowledged',
-            payload: tasks
+            payload: {
+                pickups: pickeups,
+                deliveries: deliveries
+            }
         })
     } catch (e) {
         console.error(e);
