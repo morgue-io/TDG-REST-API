@@ -17,7 +17,7 @@ exports.userLoginHandler = async (req, res, next) => {
                 message: 'User not found'
             });
         } else {
-            if (sha256_hex(decrypt(req.body.password)) !== userObj.password) {
+            if (sha256_hex(req.body.password) !== userObj.password) {
                 res.status(401).json({
                     success: false,
                     message: 'User credentials invalid'
