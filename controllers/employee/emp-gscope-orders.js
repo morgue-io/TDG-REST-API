@@ -161,11 +161,12 @@ exports.getTasksHandler = async (req, res) => {
             ]
         });
 
-        var pickeups = [], deliveries = [];
+        var parsedTasks = [];
 
         tasks.forEach(item => {
             if (item.status.picked_up.assignee_id === req.USEROBJ._id)
-                pickeups.push({
+                parsedTasks.push({
+                    type: "PICKUP",
                     customer_id: item.customer_id,
                     customer_name: item.customer_name,
                     address: item.address,
@@ -173,22 +174,20 @@ exports.getTasksHandler = async (req, res) => {
                     todo: item.todo
                 });
             else if (item.status.delivered.assignee_id === req.USEROBJ._id)
-                deliveries.push({
+                parsedTasks.push({
+                    type: "DELIVERY",
                     customer_id: item.customer_id,
                     customer_name: item.customer_name,
                     address: item.address,
                     verif_code: item.status.picked_up.verif_code,
                     todo: item.todo
                 });
-        })
+        });
 
         return res.status(200).json({
             success: true,
             message: 'GET Acknowledged',
-            payload: {
-                pickups: pickeups,
-                deliveries: deliveries
-            }
+            payload: parsedTasks
         })
     } catch (e) {
         console.error(e);
