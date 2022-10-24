@@ -4,7 +4,7 @@ const { getLocalTime } = require("../../utils/local-time");
 
 exports.getGscopeOrdersHandler = async (req, res) => {
     try {
-        const orderObjs = await orderModel.find({})
+        const orderObjs = await orderModel.find({ $or: [{ 'status.picked_up.state': false }, { 'status.delivered.state': false }] })
             .sort({ createdAt: -1 })
             .limit(req.query.quantity || 1000)
             .skip(((req.query.page - 1) * req.query.quantity) || 0);
