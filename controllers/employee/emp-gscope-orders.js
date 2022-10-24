@@ -169,14 +169,14 @@ exports.getTasksHandler = async (req, res) => {
                     customer_id: item.customer_id,
                     customer_name: item.customer_name,
                     address: item.address,
-                    verif_code: item.verif_code
+                    verif_code: item.status.picked_up.verif_code
                 });
             else if (item.status.delivered.assignee_id === req.USEROBJ._id)
                 deliveries.push({
                     customer_id: item.customer_id,
                     customer_name: item.customer_name,
                     address: item.address,
-                    verif_code: item.verif_code
+                    verif_code: item.status.picked_up.verif_code
                 });
         })
 
