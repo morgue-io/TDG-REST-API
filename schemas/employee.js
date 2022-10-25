@@ -30,12 +30,7 @@ const employeeSchema = new mongoose.Schema({
         type: [String]
     },
     service_history: {
-        pick_up: {
-            type: [String]
-        },
-        delivery: {
-            type: [String]
-        }
+        type: [String]
     }
 }, {
     versionKey: false,
