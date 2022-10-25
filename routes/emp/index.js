@@ -12,11 +12,8 @@ router.route('/login')
 router.route('/logout')
     .post(empAuth.authorisationHandler, empLogin.userLogoutHandler);
 
-router.route('/service-history/pick-up')
-    .get(empAuth.authorisationHandler, empServiceHistory.getPickupServiceHistory);
-
-router.route('/service-history/delivery')
-    .get(empAuth.authorisationHandler, empServiceHistory.getDeliveryServiceHistory);
+router.route('/service-history')
+    .get(empAuth.authorisationHandler, empServiceHistory.getServiceHistory);
 
 router.route('/orders')
     .get(empAuth.authorisationHandler, empOrders.getGscopeOrdersHandler);
