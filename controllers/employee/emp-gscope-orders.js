@@ -103,8 +103,8 @@ exports.postAssignOrderPickupDoneHandler = async (req, res) => {
         );
 
         await employeeModel.findOneAndUpdate(
-            { _id: req.USEROBJ._id, 'service_history.pick_up': {  $nin: req.query.id } },
-            { $push: { 'service_history.pick_up': `${req.query.id} (${locTime})` } }
+            { _id: req.USEROBJ._id, service_history: {  $nin: new RegExp(req.query.id) } },
+            { $push: { service_history: `[PICKUP] [${locTime}] ${req.query.id}` } }
         );
 
         return res.status(200).json({
@@ -136,8 +136,8 @@ exports.postAssignOrderDeliveryDoneHandler = async (req, res) => {
         );
 
         await employeeModel.findOneAndUpdate(
-            { _id: req.USEROBJ._id, 'service_history.delivery': {  $nin: req.query.id } },
-            { $push: { 'service_history.delivery': `${req.query.id} (${locTime})` } }
+            { _id: req.USEROBJ._id, service_history: {  $nin: new RegExp(req.query.id) } },
+            { $push: { service_history: `[DELIVERY] [${locTime}] ${req.query.id}` } }
         );
         
         return res.status(200).json({
