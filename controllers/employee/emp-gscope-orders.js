@@ -42,11 +42,6 @@ exports.postAssignOrderPickupHandler = async (req, res) => {
             }
         );
 
-        await employeeModel.findOneAndUpdate(
-            { _id: req.USEROBJ._id, 'service_history.pick_up': {  $nin: req.query.id } },
-            { $push: { 'service_history.pick_up': req.query.id } }
-        );
-
         return res.status(200).json({
             success: true,
             message: 'Status updated'
@@ -79,11 +74,6 @@ exports.postAssignOrderDeliveryHandler = async (req, res) => {
             }
         );
 
-        await employeeModel.findOneAndUpdate(
-            { _id: req.USEROBJ._id, 'service_history.delivery': {  $nin: req.query.id } },
-            { $push: { 'service_history.delivery': req.query.id } }
-        );
-
         return res.status(200).json({
             success: true,
             message: 'Status updated'
@@ -102,12 +92,19 @@ exports.postAssignOrderPickupDoneHandler = async (req, res) => {
         if (!req.USEROBJ)
             throw new Error('Fatal: USEROBJ key not found on request');
 
+        const locTime = getLocalTime();
+
         await orderModel.findOneAndUpdate(
             { _id: req.query.id }, 
             {
                 'status.picked_up.state': true,
-                'status.picked_up.time': getLocalTime()
+                'status.picked_up.time': locTime
             }
+        );
+
+        await employeeModel.findOneAndUpdate(
+            { _id: req.USEROBJ._id, 'service_history.pick_up': {  $nin: req.query.id } },
+            { $push: { 'service_history.pick_up': `${req.query.id} (${locTime})` } }
         );
 
         return res.status(200).json({
@@ -128,12 +125,19 @@ exports.postAssignOrderDeliveryDoneHandler = async (req, res) => {
         if (!req.USEROBJ)
             throw new Error('Fatal: USEROBJ key not found on request');
 
+        const locTime = getLocalTime();
+
         await orderModel.findOneAndUpdate(
             { _id: req.query.id }, 
             { 
                 'status.delivered.state': true,
-                'status.delivered.time': getLocalTime()
+                'status.delivered.time': locTime
             }
+        );
+
+        await employeeModel.findOneAndUpdate(
+            { _id: req.USEROBJ._id, 'service_history.delivery': {  $nin: req.query.id } },
+            { $push: { 'service_history.delivery': `${req.query.id} (${locTime})` } }
         );
         
         return res.status(200).json({
