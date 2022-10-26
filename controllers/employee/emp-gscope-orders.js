@@ -171,6 +171,7 @@ exports.getTasksHandler = async (req, res) => {
             if (item.status.picked_up.assignee_id === req.USEROBJ._id)
                 parsedTasks.push({
                     type: "PICKUP",
+                    order_id: item._id,
                     customer_id: item.customer_id,
                     customer_name: item.customer_name,
                     address: item.address,
@@ -180,6 +181,7 @@ exports.getTasksHandler = async (req, res) => {
             else if (item.status.delivered.assignee_id === req.USEROBJ._id)
                 parsedTasks.push({
                     type: "DELIVERY",
+                    order_id: item._id,
                     customer_id: item.customer_id,
                     customer_name: item.customer_name,
                     address: item.address,
