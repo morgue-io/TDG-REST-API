@@ -1,3 +1,5 @@
+const { parse } = require("dotenv");
+const { default: mongoose } = require("mongoose");
 const { employeeModel } = require("../../schemas/employee");
 const { orderModel } = require("../../schemas/order");
 const { getLocalTime } = require("../../utils/local-time");
@@ -167,8 +169,10 @@ exports.getTasksHandler = async (req, res) => {
 
         var parsedTasks = [];
 
-        tasks.forEach(item => {
-            if (item.status.picked_up.assignee_id === req.USEROBJ._id)
+        //console.log(JSON.stringify(tasks, null, 4))
+
+        tasks.forEach((item) => {
+            if (req.USEROBJ._id.equals(item.status.picked_up.assignee_id))
                 parsedTasks.push({
                     type: "PICKUP",
                     order_id: item._id,
@@ -178,7 +182,7 @@ exports.getTasksHandler = async (req, res) => {
                     verif_code: item.status.picked_up.verif_code,
                     todo: item.todo
                 });
-            else if (item.status.delivered.assignee_id === req.USEROBJ._id)
+            if (req.USEROBJ._id.equals(item.status.delivered.assignee_id))
                 parsedTasks.push({
                     type: "DELIVERY",
                     order_id: item._id,
