@@ -30,9 +30,6 @@ exports.calcBill = async (req, res) => {
             throw new Error('Fatal: USEROBJ key not found on request');
 
         const billb = (await billboardModel.find({ _id: process.env.BILLBOARD_OBJ }))[0]
-        
-        console.log(JSON.stringify(billb, null, 4))
-        console.log(billb)
 
         var bill = 0;
         var serviceable = [
