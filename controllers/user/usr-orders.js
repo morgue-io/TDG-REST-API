@@ -86,16 +86,17 @@ exports.postNewOrderHandler = async (req, res) => {
             "cloths_and_others"
         ]
         for (var i = 0; i < 7; i++)
-            bill += billb.formal_wash[serviceable[i]] * req.body.formal_wash[i].quantity;
+            bill += billb.formal_wash[serviceable[i]] * userObj.cart.formal_wash[i].quantity;
         for (var i = 0; i < 7; i++)
-            bill += billb.dry_wash[serviceable[i]] * req.body.dry_wash[i].quantity;
+            bill += billb.dry_wash[serviceable[i]] * userObj.cart.dry_wash[i].quantity;
         for (var i = 0; i < 7; i++)
-            bill += billb.steam_iron[serviceable[i]] * req.body.steam_iron[i].quantity;
+            bill += billb.steam_iron[serviceable[i]] * userObj.cart.steam_iron[i].quantity;
 
         const newOrder = new orderModel({
             customer_id: userObj._id,
-            customer_name: userObj.name,
+            customer_name: req.body.customer_name,
             address: req.body.address,
+            phone: req.body.phone,
             todo: userObj.cart,
             bill: `₹ ${bill.toFixed(2)}`
         });
