@@ -13,8 +13,8 @@ content-type: application/json
 
 {
     "name": "Rishi",
-    "email": "jayantapandit@outlook.in",
-    "password": "412ad0b3800b053c0b7298f36b73751b75ffe72787af8342844280e52d32e05319639d29226cbab593444f9365b0d2eddff78933690b648b9447405d7f670d3aa9acd726facbe718d63419c33bf05c820270b6ad3cb1e77881d7c1bdecd6b4fac3afbeda79037ab3781566c930bb29d4891b2070fe4f5c5ee94469e8a39fcbdedafd3b7553d7be01ac3f9d48b3ce7ff6fe1cd2aa7e1d9487df3d1b286c3c8fee9922a73328938e868a858e9a09197e9b3114c5d2ebcf3a8c5a07e8d1c402a306cf01c4e2baa152d59e3007e6e0ae3ce12f913ada7bdb93b087f0a3779f42c52f245be3d3ccaf01d6abf3e6419086808cb8ea68cd3c3276c1c8be06ce931a0b4973c1044800db6a48a24000fe5390a9c58203336f1651457e887da5bfd9d0258c871421ec83ad88f2103c3787d5c904da827d2c75585d45835d5e1b604b377216f605694900b8857a88a7360ba123ff8a618d6d4c4c3a21e52934a398fb901c8a04b162f158eb732e4243de47a65622f320fb84890b759eda0b52322535d2ac686b6022c4bbaf3dfa887492afee71f93d686ceca67566672800e88d014ab6ad3ac85c839b6c2e4764bacddb5c553ef6a7676863b20a5f409cec1f689e10aeefcb902ce58507e521a1be6dae4a3e20dec8f8d20b9378c7893eb3460173038a6b7c995edeec16f332efce8d18506480957a970eacd57a30e1a80d1192814c86beff",
+    "email": "jay.dnb@outlook.in",
+    "password": "password",
     "phone": "7856941118"
 }
 
@@ -24,8 +24,8 @@ POST http://localhost:4000/api/v1/usr/login HTTP/1.1
 content-type: application/json
 
 {
-    "email": "68@68.68",
-    "password": "11807c914e811b4574faed44cc5ec51e8e5300cf062251f2c0f64d2f911be6b387f6d55c680b19c5b5110c9ece36fe00ac1a5fccdf7b7a8e92cb9f7c1ffe30c4c5c1598834fd4d5538ca0737aa6c9920e591354339efdecec9c05a6a98cba179f2e5f377baeb936e781edc30960efe7ad48ab96883ae57aaa2b0e2201d8d0b7df742075b8d152e84e92d590261bde5eada232e3ff58c0e6c0d942f39b53a2842f280418d3e67c326ab0cfc76429c5daec6fc8cdf9ad53edf1ac79ca21a48252a7d8cf29b85c047fcc59171990b8cb5fc44ea0569c941aa3bbfaaf53e47c3df1136d4f98c092353d1bb05527470960ecb5a747a30e1146da7f7c34d093e7a44c6fbb6cbc4e44ef71eee17be39beee4ce119aae0e1b1640a94fefc19a9b8eab5acc489626539a7a0b782cd4229834ba72b395c14ee01bf9f3f0aa61e6d77b601c486844c24dd106e89a80e57fcb40561eca15717da030b2c85bd977935ee11e00b7a774388f0fb92cb4b1cf3e8bbc22554f6904203011349c627587aff4b57f3556b88aafa121f13b20f233dffe845a765084404f9164cbf8f900cb0fa4071804964571f26b12db3def4ae0963c8594f66098e7b0a0e92f970c831f8e7bd9e7b451ea89edce8103228c3a269440bef3ffdbd70a357ff5f8bc28dd067e886a7cdac581752c4b85190e8dcf03f75da373f1b4c2ec818f18b51d5139009cf7ec9d7d6"
+    "email": "jay.dnb@outlook.in",
+    "password": "password"
 }
 
 ###
@@ -248,22 +248,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzNhODYwN
 
 POST http://localhost:4000/api/v1/emp/login HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzNhODYwNDQ2MDBkMTE0NTY1ZGExZWMiLCJlbWFpbCI6ImFkbWluLjBAdGRnLmNvbSIsImlhdCI6MTY2NTc4MTA1OSwiZXhwIjo1MjY1NzgxMDU5fQ.m5ediSURmxdaj5EMhYUyDzLPfbb33ZDUU6iHhaW_6YE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ5Y2Q3MTNiNzVjMWU2NDk4YzA1MWUiLCJlbWFpbCI6ImkuaUBpIiwiaWF0IjoxNjY2NjI3MzAzLCJleHAiOjUyNjY2MjczMDN9.sILOZ9xZmi2VrSpwKdINdZV1hGBKz3V_-TZcIG1w4Bk
 
 {
     "email": "i.i@i",
-    "password": "637261636b68656164"
+    "password": "crackhead"
 }
 
 ###
 
-POST http://localhost:4000/api/v1/emp/orders/self-assign/pick-up?id=6349ec40e31ad2a703ec29f5
+POST http://localhost:4000/api/v1/emp/orders/self-assign/pick-up?id=6349f0abe31ad2a703ec2a06
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ5Y2Q3MTNiNzVjMWU2NDk4YzA1MWUiLCJlbWFpbCI6ImkuaUBpIiwiaWF0IjoxNjY1Nzg1MDc2LCJleHAiOjUyNjU3ODUwNzZ9.BsIZprSeWzyGbi-tpYnFV7zhUf6Np4XpsRekT0c48M8
 
 ###
 
-POST http://localhost:4000/api/v1/emp/orders/self-assign/delivery/done?id=6349eaf245b1626507eff6c6
+POST http://localhost:4000/api/v1/emp/orders/self-assign/pick-up/done?id=6349f0abe31ad2a703ec2a06
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ5Y2Q3MTNiNzVjMWU2NDk4YzA1MWUiLCJlbWFpbCI6ImkuaUBpIiwiaWF0IjoxNjY1Nzg1MDc2LCJleHAiOjUyNjU3ODUwNzZ9.BsIZprSeWzyGbi-tpYnFV7zhUf6Np4XpsRekT0c48M8
 
@@ -271,4 +271,69 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ5Y2Q3M
 
 GET http://localhost:4000/api/v1/emp/orders
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ5Y2Q3MTNiNzVjMWU2NDk4YzA1MWUiLCJlbWFpbCI6ImkuaUBpIiwiaWF0IjoxNjY2NjI3MzAzLCJleHAiOjUyNjY2MjczMDN9.sILOZ9xZmi2VrSpwKdINdZV1hGBKz3V_-TZcIG1w4Bk
+
+###
+
+GET http://localhost:4000/api/v1/emp/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ5Y2Q3MTNiNzVjMWU2NDk4YzA1MWUiLCJlbWFpbCI6ImkuaUBpIiwiaWF0IjoxNjY2OTUzMzg5LCJleHAiOjUyNjY5NTMzODl9.7RjtoOHCWKvl0tqj9UuUh7CBjsHGgIhMr_5wUqQ1oVY
+
+###
+
+POST http://localhost:4000/api/v1/emp/attendance
+Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ5Y2Q3MTNiNzVjMWU2NDk4YzA1MWUiLCJlbWFpbCI6ImkuaUBpIiwiaWF0IjoxNjY1Nzg1MDc2LCJleHAiOjUyNjU3ODUwNzZ9.BsIZprSeWzyGbi-tpYnFV7zhUf6Np4XpsRekT0c48M8
+
+
+###
+
+GET http://localhost:4000/api/v1/usr/order-history HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQzMjk3MzBmNTE2NWY5ZjMzY2U3NmMiLCJlbWFpbCI6ImpheWFudGFwYW5kaXRAb3V0bG9vay5pbiIsImlhdCI6MTY2NTY0NDUzNSwiZXhwIjoyMDI1NjQ0NTM1fQ.jzqwcN8uBldHdFky1gfo0APcALeKTj1eUiBevdYzdy4
+
+###
+
+POST https://tdg-apiv1.herokuapp.com/api/v1/usr/calc-bill HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzVlNzliMGQ1ZTk1NzM0YWVhMDY2OGMiLCJlbWFpbCI6ImpheS5kbmJAb3V0bG9vay5pbiIsImlhdCI6MTY2NzE5NDQ2MywiZXhwIjo1MjY3MTk0NDYzfQ.eQbGETss6GFi7Ynro4WZ1L_AQcJh6lbkF0WkkKSa7q0
+
+{
+    "dry_wash": [
+      { "item": "blazer", "quantity": 0 },
+      { "item": "shirt_and_tshirt", "quantity": 0 },
+      { "item": "pant_and_trousers", "quantity": 0 },
+      { "item": "saree", "quantity": 0 },
+      { "item": "ladies_upper", "quantity": 0 },
+      { "item": "ladies_lower", "quantity": 0 },
+      { "item": "cloths_and_others", "quantity": 0 }
+    ],
+    "formal_wash": [
+      { "item": "blazer", "quantity": 2 },
+      { "item": "shirt_and_tshirt", "quantity": 5 },
+      { "item": "pant_and_trousers", "quantity": 2 },
+      { "item": "saree", "quantity": 0 },
+      { "item": "ladies_upper", "quantity": 0 },
+      { "item": "ladies_lower", "quantity": 0 },
+      { "item": "cloths_and_others", "quantity": 0 }
+    ],
+    "steam_iron": [
+      { "item": "blazer", "quantity": 0 },
+      { "item": "shirt_and_tshirt", "quantity": 0 },
+      { "item": "pant_and_trousers", "quantity": 0 },
+      { "item": "saree", "quantity": 0 },
+      { "item": "ladies_upper", "quantity": 0 },
+      { "item": "ladies_lower", "quantity": 0 },
+      { "item": "cloths_and_others", "quantity": 0 }
+    ]
+}
+
+###
+
+POST https://tdg-apiv1.herokuapp.com/api/v1/usr/new-order HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzVlNzliMGQ1ZTk1NzM0YWVhMDY2OGMiLCJlbWFpbCI6ImpheS5kbmJAb3V0bG9vay5pbiIsImlhdCI6MTY2NzE5NDQ2MywiZXhwIjo1MjY3MTk0NDYzfQ.eQbGETss6GFi7Ynro4WZ1L_AQcJh6lbkF0WkkKSa7q0
+
+{
+    "address": "Maithon"
+}
