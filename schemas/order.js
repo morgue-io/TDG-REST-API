@@ -23,7 +23,7 @@ const orderSchema = new mongoose.Schema({
         steam_iron: [{ type: serviceable, default: [] }]
     },
     bill: {
-        type: Number,
+        type: String,
         required: true
     },
     status: {
