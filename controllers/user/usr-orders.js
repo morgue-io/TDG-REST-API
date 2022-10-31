@@ -73,11 +73,31 @@ exports.postNewOrderHandler = async (req, res) => {
                 if (userObj.cart.steam_iron.length === 0)
                     throw new Error('Invalid request: Cart is empty');
 
+        const billb = (await billboardModel.find({ _id: process.env.BILLBOARD_OBJ }))[0]
+
+        var bill = 0;
+        var serviceable = [
+            "blazer",
+            "shirt_and_tshirt",
+            "pant_and_trousers",
+            "saree",
+            "ladies_upper",
+            "ladies_lower",
+            "cloths_and_others"
+        ]
+        for (var i = 0; i < 7; i++)
+            bill += billb.formal_wash[serviceable[i]] * req.body.formal_wash[i].quantity;
+        for (var i = 0; i < 7; i++)
+            bill += billb.dry_wash[serviceable[i]] * req.body.dry_wash[i].quantity;
+        for (var i = 0; i < 7; i++)
+            bill += billb.steam_iron[serviceable[i]] * req.body.steam_iron[i].quantity;
+
         const newOrder = new orderModel({
             customer_id: userObj._id,
             customer_name: userObj.name,
             address: req.body.address,
-            todo: userObj.cart
+            todo: userObj.cart,
+            bill: `₹ ${bill.toFixed(2)}`
         });
         await newOrder.save();
         await userModel.findOneAndUpdate({ _id: req.USEROBJ._id }, {
