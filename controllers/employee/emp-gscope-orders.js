@@ -179,6 +179,7 @@ exports.getTasksHandler = async (req, res) => {
                     customer_id: item.customer_id,
                     customer_name: item.customer_name,
                     address: item.address,
+                    phone: item.phone,
                     verif_code: item.status.picked_up.verif_code,
                     todo: item.todo,
                     bill: item.bill
@@ -190,6 +191,7 @@ exports.getTasksHandler = async (req, res) => {
                     customer_id: item.customer_id,
                     customer_name: item.customer_name,
                     address: item.address,
+                    phone: item.phone,
                     verif_code: item.status.picked_up.verif_code,
                     todo: item.todo,
                     bill: item.bill
