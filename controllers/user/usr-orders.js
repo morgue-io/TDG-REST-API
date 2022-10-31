@@ -54,7 +54,7 @@ exports.calcBill = async (req, res) => {
         res.status(200).json({
             success: true,
             message: 'Rate calculated in INR',
-            payload: `₹ ${bill}`
+            payload: `₹ ${bill.toFixed(2)}`
         });
     } catch (e) {
         console.error(e);
