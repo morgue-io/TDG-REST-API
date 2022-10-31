@@ -22,6 +22,10 @@ const orderSchema = new mongoose.Schema({
         formal_wash: [{ type: serviceable, default: [] }],
         steam_iron: [{ type: serviceable, default: [] }]
     },
+    bill: {
+        type: Number,
+        required: true
+    },
     status: {
         accepted: {
             state: {

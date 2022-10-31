@@ -180,7 +180,8 @@ exports.getTasksHandler = async (req, res) => {
                     customer_name: item.customer_name,
                     address: item.address,
                     verif_code: item.status.picked_up.verif_code,
-                    todo: item.todo
+                    todo: item.todo,
+                    bill: item.bill
                 });
             if (req.USEROBJ._id.equals(item.status.delivered.assignee_id))
                 parsedTasks.push({
@@ -190,7 +191,8 @@ exports.getTasksHandler = async (req, res) => {
                     customer_name: item.customer_name,
                     address: item.address,
                     verif_code: item.status.picked_up.verif_code,
-                    todo: item.todo
+                    todo: item.todo,
+                    bill: item.bill
                 });
         });
 
