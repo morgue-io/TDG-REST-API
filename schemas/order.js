@@ -17,6 +17,10 @@ const orderSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    phone: {
+        type: String,
+        required: true
+    },
     todo: {
         dry_wash: [{ type: serviceable, default: [] }],
         formal_wash: [{ type: serviceable, default: [] }],
