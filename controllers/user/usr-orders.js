@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const { billboardModel } = require('../../schemas/billboard');
 const { orderModel } = require('../../schemas/order');
 const { userModel } = require('../../schemas/user');
 require('dotenv').config();
@@ -19,6 +20,47 @@ exports.getOrderHistoryHandler = async (req, res) => {
         res.status(500).json({
             success: false,
             message: process.env.DEBUG_MODE ? e : 'An error was encountered, check your request and try again'
+        });
+    }
+};
+
+exports.calcBill = async (req, res) => {
+    try {
+        if (!req.USEROBJ)
+            throw new Error('Fatal: USEROBJ key not found on request');
+
+        const billb = (await billboardModel.find({ _id: process.env.BILLBOARD_OBJ }))[0]
+        
+        console.log(JSON.stringify(billb, null, 4))
+        console.log(billb)
+
+        var bill = 0;
+        var serviceable = [
+            "blazer",
+            "shirt_and_tshirt",
+            "pant_and_trousers",
+            "saree",
+            "ladies_upper",
+            "ladies_lower",
+            "cloths_and_others"
+        ]
+        for (var i = 0; i < 7; i++)
+            bill += billb.formal_wash[serviceable[i]] * req.body.formal_wash[i].quantity;
+        for (var i = 0; i < 7; i++)
+            bill += billb.dry_wash[serviceable[i]] * req.body.dry_wash[i].quantity;
+        for (var i = 0; i < 7; i++)
+            bill += billb.steam_iron[serviceable[i]] * req.body.steam_iron[i].quantity;
+
+        res.status(200).json({
+            success: true,
+            message: 'Rate calculated in INR',
+            payload: `₹ ${bill}`
+        });
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({
+            success: false,
+            message: process.env.DEBUG_MODE ? e.message : 'An error was encountered, check your request and try again'
         });
     }
 };

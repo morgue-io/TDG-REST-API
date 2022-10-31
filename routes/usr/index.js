@@ -21,6 +21,9 @@ router.route('/login')
 router.route('/logout')
     .post(userAuth.authorisationHandler, userLogin.userLogoutHandler);
 
+router.route('/calc-bill')
+    .post(userAuth.authorisationHandler, userOrders.calcBill);
+
 router.route('/cart')
     .get(userAuth.authorisationHandler, userCart.getCartHandler)
     .post(userAuth.authorisationHandler, userCart.postCartHandler);
