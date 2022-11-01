@@ -27,8 +27,8 @@ app.get('/', async (_, res) => res.send('<h3 style="font-family: monospace">Ackn
 
 // Listen http port
 const httpsServer = https.createServer({
-  key: fs.readFileSync('ssl/server.key'),
-  cert: fs.readFileSync('ssl/server.crt'),
+  key: fs.readFileSync('/etc/letsencrypt/live/thedhobighat.co.in/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/thedhobighat.co.in/fullchain.pem'),
 }, app);
 
 httpsServer.listen(443, () => {

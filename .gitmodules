@@ -1,0 +1,6 @@
+[submodule "dashboard"]
+	path = dashboard
+	url = https://github.com/morgue-io/TDG-Dashboard
+[submodule "www"]
+	path = www
+	url = https://github.com/morgue-io/TDG-Web
