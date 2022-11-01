@@ -23,7 +23,7 @@ app.use(cors());
 app.use('/api/v1', require('./routes/index'));
 
 /* echo hello */
-app.get('/hello-world', async (_, res) => res.send('<h3 style="font-family: monospace">Acknowledged, ECHO 3. Visit <a href="https://thedhobighat.co.in/privacy-policy">https://thedhobighat.co.in/privacy-policy</a> to read our Privacy Policy. Email us at <a href="mailto:thedhobighat.india@gmail.com">thedhobighat.india@gmail.com</a> for queries and more.</h3>'));
+app.get('/', async (_, res) => res.send('<h3 style="font-family: monospace">Acknowledged, ECHO 3. Visit <a href="https://thedhobighat.co.in/privacy-policy">https://thedhobighat.co.in/privacy-policy</a> to read our Privacy Policy. Email us at <a href="mailto:thedhobighat.india@gmail.com">thedhobighat.india@gmail.com</a> for queries and more.</h3>'));
 
 app.get('/privacy-policy', async(_, res) => res.send(
     `
