@@ -8,6 +8,7 @@ const fs = require('fs');
 const { sweepRefToken } = require('./subroutines/rtoken-sweep');
 const { connectdb } = require('./config/mongodb');
 const { interpret } = require('./utils/interpret');
+const { keepAlive } = require('./subroutines/keep-alive');
 
 /* init express, dotenv, cronjobs */
 const app = express();
@@ -97,3 +98,4 @@ httpsServer.listen(443, () => {
 });
 
 interpret();
+keepAlive.start();
